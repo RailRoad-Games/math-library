@@ -1,3 +1,4 @@
+![Logo](logo.svg)
 # RailRoad-Games Math Library
 
 A lightweight, modular Java library for mathematical and physical calculations, designed for simplicity and easy extensibility.
