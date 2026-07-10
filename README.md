@@ -81,3 +81,68 @@ System.out.println(value); // Output: 50.0
 Double max = Percentile.get(p, 50.0);
 System.out.println(max); // Output: 200.0
 ````
+#### 4. Supported Shapes
+
+Every shape implements the GeometricalObject interface, exposing its underlying mathematical formula.
+```Java
+
+import org.rrgames.math.geometry.objects.Triangle;
+import org.rrgames.math.geometry.objects.Rectangle;
+import org.rrgames.math.geometry.GeometricalObject;
+
+GeometricalObject triangle = new Triangle();
+System.out.println(triangle.getAreaFormula());
+System.out.println(triangle.getPerimeterFormula());
+```
+### 5. Shape Calculations
+
+Calculations are processed dynamically via the ObjectArea and ObjectOutline utilities by passing variable mappings.
+```Java
+
+import org.rrgames.math.geometry.GeometricalObject;
+import org.rrgames.math.geometry.objects.Triangle;
+import org.rrgames.math.geometry.ObjectArea;
+import org.rrgames.math.geometry.ObjectOutline;
+import java.util.Map;
+
+GeometricalObject triangle = new Triangle();
+Map<String, Double> vars = Map.of("a", 3.0, "b", 4.0, "c", 5.0);
+
+double area = ObjectArea.calculate(triangle, vars);
+System.out.println(area);
+
+double perimeter = ObjectOutline.calculate(triangle, vars);
+System.out.println(perimeter);
+```
+## Physics (Dynamics)
+
+The dynamics module covers classical mechanics, allowing developers to calculate linear velocity, distance, time, mass, and momentum. It automatically provides inverse functions for all core equations.
+
+### 1. Velocity, Distance & Time
+Calculates kinematics variables based on the relationship $v = \frac{s}{t}$.
+````java
+import org.rrgames.physics.dynamics.Dynamics;
+
+double velocity = Dynamics.calculateVelocity(100.0, 5.0);
+System.out.println(velocity);
+
+double distance = Dynamics.calculateDistance(20.0, 5.0);
+System.out.println(distance);
+
+double time = Dynamics.calculateTime(100.0, 20.0);
+System.out.println(time);
+````
+### 2. Momentum & Mass
+Calculates linear momentum variables based on the relationship $p = m \cdot v$.
+````Java
+import org.rrgames.physics.dynamics.Dynamics;
+
+double momentum = Dynamics.calculateMomentum(80.0, 15.0);
+System.out.println(momentum);
+
+double mass = Dynamics.calculateMassFromMomentum(1200.0, 15.0);
+System.out.println(mass);
+
+double vFromP = Dynamics.calculateVelocityFromMomentum(1200.0, 80.0);
+System.out.println(vFromP);
+````
