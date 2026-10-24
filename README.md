@@ -1,6 +1,7 @@
 ![Logo](logo.svg)
+[\[Website\]](https://www.rrgames.org/math-library)
 # RailRoad-Games Math Library
-[Website](https://www.rrgames.org/math-library)
+
 A lightweight, modular Java library for mathematical and physical calculations, designed for simplicity and easy extensibility.
 
 ## Project Structure
